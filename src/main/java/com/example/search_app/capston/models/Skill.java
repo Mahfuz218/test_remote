@@ -26,6 +26,7 @@ public class Skill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+
     @NonNull
     @Size(max = 50)
     String name;

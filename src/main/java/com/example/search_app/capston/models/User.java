@@ -25,6 +25,7 @@ public class User {
     @Column(nullable = false)
     Long id;
 
+
     static String firstName;
 
     String lastName;

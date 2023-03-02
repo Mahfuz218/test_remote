@@ -25,6 +25,7 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+
     @NonNull
     @Size(max = 250)
     String messages;

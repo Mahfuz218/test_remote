@@ -26,6 +26,7 @@ public class Image {
 
 
 
+
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)
     @JoinColumn(name = "user_id")
     private User user;

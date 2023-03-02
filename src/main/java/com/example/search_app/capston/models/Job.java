@@ -28,6 +28,7 @@ public class Job {
     Long id;
 
 
+
     @NonNull
     String title;
 
