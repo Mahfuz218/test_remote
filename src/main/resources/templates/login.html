@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/static/css/login.css}" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Job Search</title>
+
+    <script>
+        // Javascript code goes here
+    </script>
+</head>
+<body>
+    <!-- HTML code goes here -->
+    <header>
+        <div class="d-flex justify-content-between align-items-center py-3">
+            <div class="col-6">
+                <h1 class="col-6 text-left">Find Your Job</h1>
+            </div>
+            <div class="col-6 text-right">
+                <a href="/search" class="btn btn-primary">Search</a>
+            </div>
+        </div>
+    </header>
+    
+
+    <div id="image-container">
+        <img th:src="@{/static/image/search.jpeg}" id="image" width="600px"/>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="text-center">Register</h2>
+                    <form>
+                        <div class="form-group row mb-3">
+                            <label for="usernameInput" class="col-sm-2 col-form-label text-right">Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="usernameInput" th:required="true"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="emailInput" class="col-sm-2 col-form-label text-right">Email:</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="emailInput" th:required="true"/>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="passwordInput" class="col-sm-2 col-form-label text-right">Password:</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="passwordInput" th:required="true"/>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="passwordInput" class="col-sm-2 col-form-label text-right">Confirme Password:</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="passwordInput" th:required="true"/>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary" onclick="return validateRegisterForm()">Submit</a>
+                        </div>
+                    </form>
+                  </div> 
+
+                  <div class="col-md-6">
+                      <h2 class="text-center">Login</h2>
+                    <form>   
+                      <div class="form-group row mb-3">
+                        <label for="usernameInput" class="col-sm-2 col-form-label text-right"> Name: </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="usernameInputLogin" th:required="true"/>
+                        </div>
+                      </div>
+
+                      <div class="form-group row mb-3">
+                        <label for="passwordInput" class="col-sm-2 col-form-label text-right">Password: </label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="passwordInputLogin" th:required="true"/>
+                        </div>
+                      </div>
+                      <div class="text-center"> 
+                        <a href="#" class="btn btn-primary" onclick="return validateLoginForm()">Submit</a>
+                        <p>
+                          <a href="">Forgot Password?</a>
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+            </div>
+        </div>
+    </main>
+<!-- Include the necessary JavaScript libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Include your custom JavaScript code -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var images = /*[[${images}]]*/ ['main1.jpeg', 'main2.jpeg', 'main3.jpeg', 'main4.jpeg', 'main5.jpeg']; // put all image sources in an array
+    var currentImageIndex = 0; // initialize the current image index to 0
+
+    setInterval(function() {
+        var image = document.getElementById("image");
+        currentImageIndex = (currentImageIndex + 1) % images.length; // increment the index and wrap around to the start of the array
+        image.src = "/static/image/" + images[currentImageIndex]; // update the image source
+    }, 3000); // set the interval to 3000 milliseconds (3 seconds)
+    /*]]>*/
+</script>
+</body>
+</html>

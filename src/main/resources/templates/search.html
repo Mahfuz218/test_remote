@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/search.css">
+    <title>Search Your Job</title>
+    
+</head>
+<body>
+    <!-- frag head -->
+    <!-- <div th:replace="fragments/general.html :: head"></div> -->
+    <!-- <div th:fragment="head"></div> -->
+    <header>
+
+        <div class="d-flex justify-content-between align-items-center py-3">
+          <h1 class="text-left mb-0">Search Your Job</h1>
+          <div class="d-flex align-items-center">
+            <div class="dropdown mr-3">
+              <a href="#" class="d-flex align-items-center dropdown-toggle" role="button" id="profileMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/static/image/profile.png" alt="Profile Icon" class="rounded-circle mr-2" width="50" height="50">
+                <span class="d-none d-md-block text-danger">Mohammed</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileMenu">
+                <a class="dropdown-item" href="/templates/profile.html">Profile</a>
+                <a class="dropdown-item" href="#">Language</a>
+                <a class="dropdown-item" href="#">My Favorite job</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="#">Privacy</a>
+                <a href="/templates/login.html" class="dropdown-item" href="#">Exit</a>
+              </div>
+            </div>
+            <a href="/templates/message.html" class="btn btn-primary mr-2">Message</a>
+            <a href="/templates/login.html" class="btn btn-danger">Exit</a>
+          </div>
+        </div>
+      </header>
+      
+      
+    <main>
+        <form class="form-inline my-3 justify-content-center">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+            </div>
+        </form>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <select class="form-control" id="dateDropdown">
+                            <option>Date posted:</option>
+                            <option>Any time</option>
+                            <option>Today</option>
+                            <option>Past 24 ago</option>
+                            <option>Past week</option>
+                        </select>
+                    </div> 
+                    <div class="form-group">
+                        <select class="form-control" id="distanceDropdown">
+                            <option>Distance:</option>
+                            <option>5 miles</option>
+                            <option>10 miles</option>
+                            <option>15 miles</option>
+                            <option>20 miles</option>
+                        </select>
+                    </div>
+                   <!--  -->
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <select class="form-control" id="levelDropdown">
+                            <option>Experience level:</option>
+                            <option>Entry level</option>
+                            <option>Junior</option>
+                            <option>Senior</option>
+                            <option>Director</option>
+                        </select>
+                    </div>
+
+                         <div class="form-group">
+                            <select class="form-control" id="levelDropdown">
+                                <option>Comany name:</option>
+                                <option>Apple</option>
+                                <option>Google</option>
+                                <option>TEKsystem</option>
+                                <option>Dic</option>
+                            </select>
+                        </div>
+
+                    <div class="form-group">
+                        <select class="form-control" id="contractTypeDropdown">
+                            <option>Contract type:</option>
+                            <option>Contract</option>
+                            <option>Full time</option>
+                            <option>Part time</option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <select class="form-control" id="categorySelect">
+                            <option>Select a category:</option>
+                            <option>All</option>
+                            <option>IT</option>
+                            <option>Marketing</option>
+                            <option>Sales</option>
+                            <option>Human Resources</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="workTypeDropdown">
+                            <option>Job type:</option>
+                            <option>Remote</option>
+                            <option>Onsite</option>
+                            <option>Intership</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </header>
+    <main>
+        <div class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+            <tbody>
+                <tr>
+                    <td>Software Engineer</td>
+                    <td>TEK</td>
+                    <td>CA</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>Marketing Manager</td>
+                    <td>Scholas</td>
+                    <td>IL</td>
+                    <td>Marketing</td>
+                </tr>
+                <tr>
+                    <td>Sales Representative</td>
+                    <td>Apple</td>
+                    <td>MN</td>
+                    <td>Sales</td>
+                </tr>
+                <tr>
+                    <td>HR Manager</td>
+                    <td>Microsoft</td>
+                    <td>WA</td>
+                    <td>Human Resources</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <div th:replace="fragments/general.html :: foot"></div>
+    
+</body>
+</html>
