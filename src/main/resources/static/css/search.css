@@ -1,0 +1,29 @@
+header h1 {
+  padding: 0.3em;
+  color: rgb(246, 122, 34);
+  text-shadow: 2px 2px 2px black;
+  font-size: 2rem;
+}
+
+body {
+  background-image: url("/static/image/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/* Target the table header */
+table thead {
+  color: yellow;
+}
+
+/* Target the table body */
+table tbody {
+  color: rgb(255, 255, 255);
+}
+
+
+header .d-flex {
+  padding: 1rem;
+}
+ 

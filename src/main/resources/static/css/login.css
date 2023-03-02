@@ -1,0 +1,44 @@
+
+header h1 {
+  padding: 0.3em;
+  color: rgb(246, 122, 34);
+  font-size: 2rem;
+}
+body {
+  background-image: url("/static/image/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+  h1 {
+    font-family: 'Lora', serif;
+    text-align: center;
+  }
+
+  h2 {
+    color: white;
+  }
+  
+  img {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+ 
+  
+  #image {
+    width: 500px;
+    height: 300px;
+  }
+
+  label {
+    color: white;
+  }
+
+  p a {
+    color: orange;
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+  

@@ -1,0 +1,117 @@
+ 
+  
+  body {
+    background-image: url("/static/image/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  header { 
+    padding: 0.3em;
+    color: rgb(246, 122, 34);
+    font-size: 2rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .message-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .message-list {
+    flex-basis: 30%;
+  }
+  
+  .message-list li {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  
+  .message-list li a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .message-list li a:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .message-body {
+    flex-basis: 70%;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .message-body h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  
+  .message-body p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  
+  .search-box {
+    margin-bottom: 30px;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+  }
+  
+  .search-box button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .search-box button:hover {
+    background-color: #0069d9;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .message-container {
+      flex-direction: column;
+    }
+  
+    .message-list {
+      flex-basis: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .message-body {
+      flex-basis: 100%;
+    }
+  }
+  
