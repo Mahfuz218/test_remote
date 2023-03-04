@@ -14,40 +14,43 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
-
 @Getter
 @Setter
 @ToString
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
-
 @Table(name = "jobs")
 public class Job {
     @Id @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-
-
     @NonNull
     String title;
 
-    String companyName;
+    @Column(length = 2500)
+    String jobDescription;
+
+    @ManyToOne
+    Company company;
+
+    @ManyToMany
+    Set<Skill> skills;
+
     @NonNull
-    String location;
+    private String location;
 
     @NonNull
     @Size(max = 50)
-    String jobType;
+    private String jobType;
 
 
     @Temporal(TemporalType.TIMESTAMP)
-    Date createdAt = new Date();
+    private Date createdAt = new Date();
 
-    @ToString.Exclude
-    @ManyToMany(mappedBy = "jobs", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
-    Set<User> user = new LinkedHashSet<>();
-
+    @JoinColumn(name = "created_by")
+    @ManyToOne
+    private Users createBy;
 
 
 //     public void addUser(User u){

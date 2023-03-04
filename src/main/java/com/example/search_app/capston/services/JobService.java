@@ -1,7 +1,7 @@
 package com.example.search_app.capston.services;
 
-import org.springframework.stereotype.Service;
+import com.example.search_app.capston.dto.AddJobDto;
 
-@Service
-public class JobService {
+public interface JobService {
+    void addJob(AddJobDto addJobDto);
 }

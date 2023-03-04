@@ -29,26 +29,14 @@ public class Skill {
 
     @NonNull
     @Size(max = 50)
+    @Column(unique = true)
     String name;
 
 
     @ToString.Exclude
-    @ManyToMany(mappedBy = "skills", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
-    private Set<User> user = new LinkedHashSet<>();
+    @ManyToMany
+    private Set<Users> user = new LinkedHashSet<>();
 
-
-    public void addUser(User s){
-        user.add(s);
-        s.getSkills().add(this);
-        log.debug("add user executed");
-    }
-
-
-    public void removeUser(User s){
-        user.remove(s);
-        s.getSkills().remove(this);
-        log.debug("add remove executed");
-    }
 
 
 
