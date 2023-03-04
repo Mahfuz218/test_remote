@@ -60,4 +60,5 @@ public class CapstonApplication implements CommandLineRunner {
 			usersRepository.saveAll(List.of(mngUsers, user));
 
 		}
+	}
 }

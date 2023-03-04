@@ -46,7 +46,6 @@ public class Job {
     private String jobType;
 
 
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDate createdAt = LocalDate.now();
 
     @JoinColumn(name = "created_by")
