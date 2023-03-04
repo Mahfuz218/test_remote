@@ -6,7 +6,9 @@ import com.example.search_app.capston.services.SkillService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -44,5 +46,10 @@ public class SkillServiceImpl implements SkillService {
     public Skill getSkillById(long skillId) {
         return skillRepository.findById(skillId)
                 .orElseThrow(() -> new RuntimeException("Skill not found with id:" + skillId));
+    }
+
+    @Override
+    public List<Skill> getAllSkillByIds(Set<Long> ids) {
+        return skillRepository.findAllById(ids);
     }
 }
