@@ -108,7 +108,7 @@ public class CompanyController {
 
             redirectAttributes.addAttribute("messageType", "Success");
             redirectAttributes.addAttribute("class", "bg-success");
-            redirectAttributes.addAttribute("message", "Letter Updated successfully.");
+            redirectAttributes.addAttribute("message", "Company Updated successfully.");
             return "redirect:/company";
         } catch (Exception e) {
             e.printStackTrace();

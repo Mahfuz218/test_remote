@@ -2,7 +2,9 @@ package com.example.search_app.capston.controllers;
 
 import com.example.search_app.capston.dto.AddCompanyDto;
 import com.example.search_app.capston.models.Company;
+import com.example.search_app.capston.models.Skill;
 import com.example.search_app.capston.services.CompanyService;
+import com.example.search_app.capston.services.SkillService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -11,30 +13,28 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.time.format.DateTimeFormatter;
-import java.util.Optional;
-
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/company")
-public class CompanyController {
+@RequestMapping("/skill")
+public class SkillController {
 
-    private final CompanyService companyService;
+    private final SkillService skillService;
 
     @GetMapping
-    public String getCompanyList(Model model) {
-        model.addAttribute("companyList", companyService.getAllCompany());
-        return "admin_templates/company/company-list";
+    public String getSkillList(Model model) {
+        model.addAttribute("skill", new Skill());
+        model.addAttribute("skillList", skillService.getAllSkill());
+        return "admin_templates/skill/skill-list";
     }
 
     @GetMapping("/add")
-    public String addCompany(Model model) {
-        model.addAttribute("addCompanyDto", new AddCompanyDto());
-        return "admin_templates/company/company-add";
+    public String addSkill(Model model) {
+        model.addAttribute("skill", new Skill());
+        return "admin_templates/skill/skill-add";
     }
 
     @PostMapping("/add")
-    public String addCompany(@ModelAttribute AddCompanyDto addCompanyDto,
+    public String addSkill(@ModelAttribute Skill skill,
                             BindingResult result,
                             RedirectAttributes redirectAttributes){
 
@@ -42,56 +42,27 @@ public class CompanyController {
             redirectAttributes.addAttribute("messageType", "Failed");
             redirectAttributes.addAttribute("class", "bg-danger");
             redirectAttributes.addAttribute("message", "Failed to Validate form.");
-            return "redirect:/company/add";
+            return "redirect:/skill/add";
         }
 
         try {
-            companyService.add(addCompanyDto);
+            skillService.addSkill(skill.getName());
             redirectAttributes.addAttribute("messageType", "Success");
             redirectAttributes.addAttribute("class", "bg-success");
-            redirectAttributes.addAttribute("message", "Company added successfully.");
+            redirectAttributes.addAttribute("message", "Skill added successfully.");
         } catch (Exception e) {
             e.printStackTrace();
             redirectAttributes.addAttribute("messageType", "Failed");
             redirectAttributes.addAttribute("class", "bg-danger");
-            redirectAttributes.addAttribute("message", "Failed to add company,"+e.getMessage());
+            redirectAttributes.addAttribute("message", "Failed to add Skill,"+e.getMessage());
         }
 
-        return "redirect:/company";
+        return "redirect:/skill";
     }
 
-
-    @GetMapping("/update")
-    public String updateCompany(Model model,
-                               @RequestParam long companyId,
-                               RedirectAttributes redirectAttributes){
-        try {
-            Company company = companyService.getCompanyById(companyId);
-
-            AddCompanyDto addCompanyDto = new AddCompanyDto();
-            //addCompanyDto.setId(companyId);
-            addCompanyDto.setCompanyAddress(company.getCompanyAddress());
-            addCompanyDto.setEmail(company.getEmail());
-            addCompanyDto.setPhone(company.getPhone());
-            addCompanyDto.setName(company.getName());
-
-            model.addAttribute("addCompanyDto",addCompanyDto);
-            model.addAttribute("companyId", companyId);
-
-            return "admin_templates/company/company-edit";
-        } catch (Exception e) {
-            redirectAttributes.addAttribute("messageType", "Failed");
-            redirectAttributes.addAttribute("class", "bg-danger");
-            redirectAttributes.addAttribute("message", "Company not found with id:"+ companyId);
-            return "redirect:/company";
-        }
-    }
-
-
-    @PostMapping("/update/{companyId}")
-    public String updateCompany(
-            @ModelAttribute @Valid AddCompanyDto addCompanyDto,
-            @PathVariable long companyId,
+    @PostMapping("/update")
+    public String updateSkill(
+            @ModelAttribute @Valid Skill skill,
             BindingResult result,
             RedirectAttributes redirectAttributes) {
 
@@ -99,41 +70,41 @@ public class CompanyController {
             redirectAttributes.addAttribute("messageType", "Failed");
             redirectAttributes.addAttribute("class", "bg-danger");
             redirectAttributes.addAttribute("message", "Failed to Validate form.");
-            return "redirect:/company/update";
+            return "redirect:/skill/update";
         }
 
         try {
 
-            companyService.updateCompany(addCompanyDto, companyId);
+            skillService.updateSkill(skill.getId(), skill.getName());
 
             redirectAttributes.addAttribute("messageType", "Success");
             redirectAttributes.addAttribute("class", "bg-success");
-            redirectAttributes.addAttribute("message", "Letter Updated successfully.");
-            return "redirect:/company";
+            redirectAttributes.addAttribute("message", "Skill Updated successfully.");
+            return "redirect:/skill";
         } catch (Exception e) {
             e.printStackTrace();
             redirectAttributes.addAttribute("messageType", "Failed");
             redirectAttributes.addAttribute("class", "bg-danger");
             redirectAttributes.addAttribute("message", "Failed, "+e.getMessage());
-            return "redirect:/company";
+            return "redirect:/skill";
         }
     }
 
 
     @GetMapping("/delete")
-    public String deleteCompany(@RequestParam long companyId, RedirectAttributes redirectAttributes) {
+    public String deleteSkill(@RequestParam long skillId, RedirectAttributes redirectAttributes) {
         try {
-            companyService.deleteCompany(companyId);
+            skillService.deleteSkill(skillId);
             redirectAttributes.addAttribute("messageType", "Success");
             redirectAttributes.addAttribute("class", "bg-success");
-            redirectAttributes.addAttribute("message", "Company Deleted successfully.");
+            redirectAttributes.addAttribute("message", "Skill Deleted successfully.");
         } catch (Exception e) {
             e.printStackTrace();
             redirectAttributes.addAttribute("messageType", "Failed");
             redirectAttributes.addAttribute("class", "bg-danger");
-            redirectAttributes.addAttribute("message", "Failed to delete Company,"+e.getMessage());
+            redirectAttributes.addAttribute("message", "Failed to delete Skill,"+e.getMessage());
         }
-        return "redirect:/company";
+        return "redirect:/skill";
     }
 
 }
