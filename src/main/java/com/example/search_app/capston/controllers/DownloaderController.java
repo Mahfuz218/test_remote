@@ -1,4 +1,4 @@
-package com.example.search_app.capston.controllers.controller;
+package com.example.search_app.capston.controllers;
 
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;

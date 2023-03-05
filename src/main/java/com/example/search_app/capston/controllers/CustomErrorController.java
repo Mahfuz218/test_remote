@@ -1,4 +1,4 @@
-package com.example.search_app.capston.controllers.controller;
+package com.example.search_app.capston.controllers;
 
 import com.example.search_app.capston.dto.ErrorModel;
 import jakarta.servlet.RequestDispatcher;
