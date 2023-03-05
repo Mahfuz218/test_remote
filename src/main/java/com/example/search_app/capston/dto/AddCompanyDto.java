@@ -1,11 +1,15 @@
 package com.example.search_app.capston.dto;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddCompanyDto {
+
+    //Long id;
     @NotNull
     String name;
     @NonNull

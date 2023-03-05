@@ -7,6 +7,8 @@ import com.example.search_app.capston.services.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
@@ -57,5 +59,10 @@ public class CompanyServiceImpl implements CompanyService {
     public Company getCompanyById(long companyId) {
         return companyRepository.findById(companyId)
                 .orElseThrow(() -> new RuntimeException("Company not found with id:"+ companyId));
+    }
+
+    @Override
+    public List<Company> getAllCompany() {
+        return companyRepository.findAll();
     }
 }
