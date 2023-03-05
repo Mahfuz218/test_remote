@@ -27,7 +27,7 @@ public class SecurityConfiguration {
                 .loginPage("/login")
                 .failureUrl("/loginError")
                 .permitAll()
-                .defaultSuccessUrl("/company", true);
+                .defaultSuccessUrl("/job", true);
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .invalidateHttpSession(true)
