@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminDashboardController {
-    @GetMapping({"/", "/home", "/index"})
+    @GetMapping({"/", "/dashboard", "/index"})
     public String dashboard(Model model) {
-        return "redirect:letter";
+        return "dashboard";
     }
 }
