@@ -20,7 +20,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/job").permitAll()
+                .requestMatchers("/job/filter-page", "/error", "/register", "/", "/index").permitAll()
                 .anyRequest()
                 .authenticated());
 
@@ -28,7 +28,7 @@ public class SecurityConfiguration {
                 .loginPage("/login")
                 .failureUrl("/loginError")
                 .permitAll()
-                .defaultSuccessUrl("/job", true);
+                .defaultSuccessUrl("/job/filter-page", true);
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .invalidateHttpSession(true)

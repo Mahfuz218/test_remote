@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AdminDashboardController {
     @GetMapping({"/", "/dashboard", "/index"})
     public String dashboard(Model model) {
-        return "dashboard";
+        return "admin_templates/job/job-filter";
     }
 }

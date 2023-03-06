@@ -32,6 +32,14 @@ public class JobController {
         return "admin_templates/job/job-list";
     }
 
+    @GetMapping("/filter-page")
+    public String getUserJobs(Model model) {
+        model.addAttribute("jobList", jobService.getAllJob());
+        model.addAttribute("skills", skillService.getAllSkill());
+        model.addAttribute("companyList", companyService.getAllCompany());
+        return "admin_templates/job/job-filter";
+    }
+
     @GetMapping("/add")
     public String addJob(Model model) {
         model.addAttribute("addJobDto", new AddJobDto());
