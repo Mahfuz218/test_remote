@@ -3,7 +3,7 @@
 <!-- Head -->
 <div th:replace="admin_templates/header/head"></div>
 <link rel="stylesheet" type="text/css" th:href="@{/admin_resources/css/plugins/datatable/datatables.min.css}"/>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class=" sidebar-collapse">
 <div class="wrapper" th:with="messageClass = ${param.class}">
 
     <!-- Preloader -->
@@ -30,7 +30,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <div th:replace="admin_templates/sidebar/sidebar"></div>
+<!--    <div th:replace="admin_templates/sidebar/sidebar"></div>-->
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

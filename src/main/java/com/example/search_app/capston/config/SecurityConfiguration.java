@@ -20,6 +20,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((requests) -> requests
+                .requestMatchers("/job").permitAll()
                 .anyRequest()
                 .authenticated());
 
